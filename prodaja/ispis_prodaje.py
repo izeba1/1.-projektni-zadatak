@@ -1,5 +1,7 @@
 from korisnik import ispis_korisnika
 from artikl import ispis_artikla
+
+
 def ispis_prodaje(prodaja):
     ispis_korisnika(prodaja['korisnik'])
     ispis_artikla(prodaja['artikl'])
