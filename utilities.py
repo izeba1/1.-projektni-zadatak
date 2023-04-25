@@ -61,3 +61,63 @@ def unos_intervala(min, max):
             print(e)
         else:
             return broj
+
+
+def unos_telefona(poruka):
+    while True:
+        try:
+            broj = unos_pozitivnog_cijelog_broja(poruka)
+
+            if len(str(broj)) !=8:
+                raise Exception(f'Uneseni broj mora imat 8 znamenaka!')
+
+        except Exception as e:
+            print(e)
+
+        else:
+            return broj
+
+
+
+def unos_mail(poruka):
+    while True:
+        try:
+            mail = input(poruka)
+
+            while '@' not in mail:
+                raise Exception(f'Uneseni mail mora imati znak @!')
+
+        except Exception as e:
+            print(e)
+
+        else:
+            return mail
+
+
+def unos_mail_m(poruka):
+    while True:
+        try:
+            email = input(poruka)
+            index = email.index('@')
+
+        except ValueError:
+            print('Uneseni mail mora sadržavati znak @!')
+
+        else:
+            return email
+
+
+def unos_godina(poruka):
+    while True:
+        try:
+            godine = unos_pozitivnog_cijelog_broja(poruka)
+
+            if godine < 18 or godine > 120:
+                raise Exception(f'Broj godina mora biti iznad 18 i ispod 120!')
+
+        except Exception as e:
+            print(e)
+        else:
+            return godine
+
+
