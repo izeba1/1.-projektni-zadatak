@@ -1,13 +1,21 @@
-from osobna import unos_osobne
 from utilities import unos_telefona, unos_mail, unos_mail_m, unos_godina
-
+from .korisnik import Korisnik
+from .osobnaiskaznica import OsobnaIskaznica
 
 def unos_korisnika(redni_broj):
-    korisnik = {}
-    korisnik['ime'] = input(f'Unesite ime {redni_broj}. korisnika: ').capitalize()
-    korisnik['prezime'] = input(f'Unesite prezime {redni_broj}. korisnika: ').capitalize()
-    korisnik['godine'] = unos_godina(f'Unesite broj godina {redni_broj}. korisnika: ')
-    korisnik['tel'] = unos_telefona(f'Unesite telefon {redni_broj}. korisnika: ')
-    korisnik['email'] = unos_mail_m(f'Unesite email {redni_broj}. korisnika: ').strip()
-    #korisnik['osobna'] = unos_osobne(redni_broj)
-    return korisnik
+    ime = input(f'Unesite ime {redni_broj}. korisnika: ').capitalize()
+    prezime = input(f'Unesite prezime {redni_broj}. korisnika: ').capitalize()
+    telefon = unos_telefona(f'Unesite telefon {redni_broj}. korisnika: ')
+    email = unos_mail_m(f'Unesite email {redni_broj}. korisnika: ').strip()
+    oib = input(f'Unesite OIB {redni_broj}. korisnika: ')
+    prebivaliste = input(f'Unesite prebivaliste {redni_broj}. korisnika: ')
+    broj = input(f'Unesite broj osobne iskaznice {redni_broj}. korisnika: ')
+
+    osobna = OsobnaIskaznica(oib, prebivaliste, broj)
+
+    return Korisnik(ime, prezime, telefon, email, osobna)
+
+
+
+
+
