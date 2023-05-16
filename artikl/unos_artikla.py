@@ -1,8 +1,31 @@
-from utilities import unos_pozitivnog_realnog_broja
-from .artikl import Artikl
+from utilities import unos_pozitivnog_realnog_broja, unos_intervala
+from .automobil import Automobil
+from .stan import Stan
+from .izleti import Izleti
 
 def unos_artikla(redni_broj):
-    naslov = input(f'Unesite naslov {redni_broj}. artikla: ').capitalize()
-    opis = input(f'Unesite opis {redni_broj}. artikla: ').capitalize()
+
+    naslov = input(f'Unesite naslov {redni_broj}. artikla: ')
+    opis = input(f'Unesite opis {redni_broj}. artikla: ')
     cijena = unos_pozitivnog_realnog_broja(f'Unesite cijenu {redni_broj}. artikla: ')
-    return Artikl(naslov, opis, cijena)
+
+    print('Tipovi artikla: ')
+    print('\t1. Stan')
+    print('\t2. Automobil')
+    print('\t3. Izleti')
+
+    tip_artikla = unos_intervala(1,3)
+
+    if tip_artikla == 1:
+        kvadratura = unos_pozitivnog_realnog_broja(f'Unesite kvadraturu {redni_broj}. stana: ')
+
+        return Stan(kvadratura, naslov, opis, cijena)
+
+    elif tip_artikla == 2:
+        snaga = unos_pozitivnog_realnog_broja(f'Unesite snagu {redni_broj}. auta: ')
+
+        return Automobil(snaga, naslov, opis, cijena)
+
+    elif tip_artikla == 3:
+
+        return Izleti(naslov, opis, cijena)
