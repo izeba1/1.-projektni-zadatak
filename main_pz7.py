@@ -150,6 +150,8 @@ class App(QtWidgets.QMainWindow):
             self.text_naziv.hide()
             self.label_web.hide()
             self.text_web.hide()
+            self.label_oib.hide()
+            self.text_oib.hide()
             self.label_ime.show()
             self.text_ime.show()
             self.label_prezime.show()
